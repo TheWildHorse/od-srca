@@ -1,0 +1,10 @@
+{
+  "name": "OdSrca",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "webpack-notifier": "^1.7.0"
+  }
+}

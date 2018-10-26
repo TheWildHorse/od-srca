@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Od Srca - Želje{% endblock %}
+
+{% block body %}
+    <div class="landing-page container-fluid">
+        <div class="col-md-6 left-div">
+            {% include 'navigation.html.twig' %}
+            <div class="about-content">
+                <h1 class="subtitle">Želje</h1>
+                {% for entry in entries %}
+                    <div class="entryDiv">
+                        <div class="entryDescription">
+                            <h3>Ime</h3>
+                            <h3>Lokacija</h3>
+                            <h3>Želja</h3>
+                            <h3>Slika</h3>
+                            <h3>Ostvareno</h3>
+                            <h3>Ostvari</h3>
+                        </div>
+                        <div class="entry">
+                            <h4>{{ entry.name }}</h4>
+                            <h4>{{ entry.location }}</h4>
+                            <h4>{{ entry.wish }}</h4>
+                            <a href="{{ asset('uploads/' ~ entry.wishImage) }}">Pogledaj Sliku</a>
+                            <h4>{{ entry.isGranted }}</h4>
+                            <a href="{{ url('wish.realize', {'entryId': entry.id}) }}" style="width: 100%;display:block;" class="btn btn-sm btn-primary"><span data-feather="edit"></span> Ostvari</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="hearts">
+                <i class="far fa-heart"></i>
+            </div>
+        </div>
+        {% include 'right_div.html.twig' %}
+    </div>
+    {% include 'statistics.html.twig' %}
+{% endblock %}

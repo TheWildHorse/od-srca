@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Od Srca - Zaželi{% endblock %}
+
+{% block body %}
+    <div class="landing-page container-fluid">
+        <div class="col-md-6 left-div">
+            {% include 'navigation.html.twig' %}
+            <div class="about-content">
+                <h1 class="subtitle">Zaželi</h1>
+                {{ form(form) }}
+            </div>
+            <div class="hearts">
+                <i class="far fa-heart"></i>
+            </div>
+        </div>
+        {% include 'right_div.html.twig' %}
+    </div>
+    {% include 'statistics.html.twig' %}
+{% endblock %}

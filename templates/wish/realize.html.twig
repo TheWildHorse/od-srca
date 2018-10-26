@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Od Srca - Ostvari{% endblock %}
+
+{% block body %}
+    <div class="landing-page container-fluid">
+        <div class="col-md-6 left-div">
+            {% include 'navigation.html.twig' %}
+            <div class="about-content">
+                <h1 class="subtitle">Ostvari Želju</h1>
+                {{ form(form) }}
+            </div>
+            <div class="hearts">
+                <i class="far fa-heart"></i>
+            </div>
+        </div>
+        <div class="col-md-6 right-div">
+            <img src="{{'../../images/landingPageImage.jpg'}}" />
+        </div>
+    </div>
+    {% include 'statistics.html.twig' %}
+{% endblock %}
