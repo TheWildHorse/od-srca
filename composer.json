@@ -7,6 +7,10 @@
         "ext-iconv": "*",
         "doctrine/data-fixtures": "^1.3",
         "doctrine/orm": "^2.6",
+        "geocoder-php/google-maps-provider": "dev-master",
+        "knplabs/knp-paginator-bundle": "^2.8",
+        "php-http/guzzle6-adapter": "^1.1",
+        "php-http/message": "^1.7",
         "symfony/asset": "*",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
@@ -14,11 +18,12 @@
         "symfony/framework-bundle": "*",
         "symfony/maker-bundle": "^1.8",
         "symfony/orm-pack": "^1.0",
+        "symfony/swiftmailer-bundle": "^3.2",
         "symfony/twig-bundle": "*",
         "symfony/validator": "*",
         "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "*",
-      "ext-http": "*"
+        "willdurand/geocoder-bundle": "^5.0"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.0",

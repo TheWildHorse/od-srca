@@ -3,20 +3,44 @@
 {% block title %}Od Srca - Ostvari{% endblock %}
 
 {% block body %}
-    <div class="landing-page container-fluid">
+    <div class="landing-page container-fluid abs">
         <div class="col-md-6 left-div">
             {% include 'navigation.html.twig' %}
             <div class="about-content">
                 <h1 class="subtitle">Ostvari Želju</h1>
-                {{ form(form) }}
+                {{ form_start(form) }}
+                <div class="wish-container realize">
+                    <div class="container-left">
+                        <div class="input">
+                            <i class="far fa-user-circle"></i>
+                            {{ form_row(form.realizeEmail) }}
+                        </div>
+                        <div class="input">
+                            <i class="fas fa-at"></i>
+                            {{ form_row(form.realizePhone) }}
+                        </div>
+                        <div class="input">
+                            <i class="fas fa-map-marker-alt"></i>
+                            {{ form_row(form.realizeWish) }}
+                        </div>
+                    </div>
+            </div>
+                <div class="container-footer">
+                    <div class="submit" id="submitGrant">
+                        <i class="fas fa-angle-right"></i>
+                        {{ form_row(form.submit) }}
+                    </div>
+                    <p>
+                        Tvoji podaci će biti čuvani s obzirom na regulative zaštite osobnih podataka (GDPR).
+                    </p>
+                </div>
+                {{ form_end(form) }}
             </div>
             <div class="hearts">
-                <i class="far fa-heart"></i>
+                <img src="{{ '/images/illustration.svg' }}"/>
             </div>
         </div>
-        <div class="col-md-6 right-div">
-            <img src="{{'../../images/landingPageImage.jpg'}}" />
-        </div>
+        {% include 'right_div.html.twig' %}
     </div>
-    {% include 'statistics.html.twig' %}
+    {% include 'footer.html.twig' %}
 {% endblock %}

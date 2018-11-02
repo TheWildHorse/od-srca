@@ -3,7 +3,7 @@
 {% block title %}Od Srca{% endblock %}
 
 {% block body %}
-    <div class="landing-page container-fluid">
+    <div class="landing-page container-fluid abs">
         <div class="col-md-6 left-div">
             {% include 'navigation.html.twig' %}
             <div class="about-content">
@@ -24,10 +24,50 @@
                 </p>
             </div>
             <div class="hearts">
-                <i class="far fa-heart"></i>
+                <img src="{{ '/images/illustration.svg' }}"/>
             </div>
         </div>
         {% include 'right_div.html.twig' %}
     </div>
-    {% include 'statistics.html.twig' %}
+    {% include 'footer.html.twig' %}
+    <div class="statistics">
+        <div>
+            <div class="gifts">
+                <div class="number">
+                    <p>
+                        {{ numberGifts }}
+                    </p>
+                </div>
+                <div class="text">
+                    <p>
+                        poklona
+                    </p>
+                </div>
+            </div>
+            <div class="kids">
+                <div class="number">
+                    <p>
+                        {{ numberKids }}
+                    </p>
+                </div>
+                <div class="text">
+                    <p>
+                        djece
+                    </p>
+                </div>
+            </div>
+            <div class="places">
+                <div class="number">
+                    <p>
+                        {{ numberCities }}
+                    </p>
+                </div>
+                <div class="text">
+                    <p>
+                        mjesta
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

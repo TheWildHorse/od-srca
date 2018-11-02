@@ -3,37 +3,71 @@
 {% block title %}Od Srca - Želje{% endblock %}
 
 {% block body %}
-    <div class="landing-page container-fluid">
-        <div class="col-md-6 left-div">
+    <div class="landing-page container-fluid list abs">
+        <div class="col-md-12">
             {% include 'navigation.html.twig' %}
-            <div class="about-content">
-                <h1 class="subtitle">Želje</h1>
-                {% for entry in entries %}
-                    <div class="entryDiv">
-                        <div class="entryDescription">
-                            <h3>Ime</h3>
-                            <h3>Lokacija</h3>
-                            <h3>Želja</h3>
-                            <h3>Slika</h3>
-                            <h3>Ostvareno</h3>
-                            <h3>Ostvari</h3>
-                        </div>
-                        <div class="entry">
-                            <h4>{{ entry.name }}</h4>
-                            <h4>{{ entry.location }}</h4>
-                            <h4>{{ entry.wish }}</h4>
-                            <a href="{{ asset('uploads/' ~ entry.wishImage) }}">Pogledaj Sliku</a>
-                            <h4>{{ entry.isGranted }}</h4>
-                            <a href="{{ url('wish.realize', {'entryId': entry.id}) }}" style="width: 100%;display:block;" class="btn btn-sm btn-primary"><span data-feather="edit"></span> Ostvari</a>
-                        </div>
+            <div class="wish-list">
+                <div class="content-header">
+                    <h1 class="subtitle">Popis želja</h1>
+                    <div class="count">
+                        <h5>Ukupno želja: </h5>{{ pagination.getTotalItemCount }}
                     </div>
-                {% endfor %}
-            </div>
-            <div class="hearts">
-                <i class="far fa-heart"></i>
+                </div>
+                <div class="entries">
+                    {% for entry in pagination %}
+                        <div class="wish">
+                            <div class="wish-container">
+                                <div class="container-left">
+                                    <div class="input">
+                                        <i class="far fa-user-circle"></i>
+                                        {{ entry.name }}
+                                    </div>
+                                    <div class="input">
+                                        <i class="fas fa-location-arrow"></i>
+                                        {{ entry.location }}
+                                    </div>
+                                    <div class="input">
+                                        <i class="far fa-image"></i>
+                                        {% if entry.wishImage != null%}
+                                            <img src="{{ '/uploads/images/' ~ entry.wishImage }}" class="wishImage"
+                                                 data-value="{{ entry.id }}"/>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="container-right">
+                                    <div class="input">
+                                        <i class="fas fa-edit"></i>
+                                        {{ entry.wish }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-footer">
+                                <div class="submit realize">
+                                    <i class="fas fa-angle-right"></i>
+                                    <a href="{{ url('wish.realize', {'entryId': entry.id}) }}"
+                                       style="width: 100%;display:block;" class="btn btn-sm btn-primary"><span
+                                                data-feather="edit"></span> Ostvari</a>
+                                </div>
+                                <p>
+
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="navigation">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
             </div>
         </div>
-        {% include 'right_div.html.twig' %}
     </div>
-    {% include 'statistics.html.twig' %}
+    {% for entry in pagination %}
+        <div class="fullscreenImage" data-value="{{ entry.id }}">
+            <div class="imageClose">
+                <i class="fas fa-times"></i>
+            </div>
+            <img src="{{ '/uploads/images/' ~ entry.wishImage }}" class="fullscreenWishImage"/>
+        </div>
+    {% endfor %}
+    {% include 'footer.html.twig' %}
 {% endblock %}

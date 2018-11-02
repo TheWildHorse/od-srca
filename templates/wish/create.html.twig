@@ -3,18 +3,82 @@
 {% block title %}Od Srca - Zaželi{% endblock %}
 
 {% block body %}
-    <div class="landing-page container-fluid">
+    <div class="landing-page container-fluid abs">
         <div class="col-md-6 left-div">
             {% include 'navigation.html.twig' %}
-            <div class="about-content">
-                <h1 class="subtitle">Zaželi</h1>
-                {{ form(form) }}
+            <div class="about-content wish">
+                <h1 class="subtitle">Zaželi želju</h1>
+                {{ form_start(form) }}
+                <div class="wish-container-main">
+                    <p>Ovi podaci će biti javno prikazani svim posjetiteljima stranice, molimo vas nemojte otkrivati nikakve osobne podatke</p>
+                    <div class="wish-container">
+                        <h3>Podaci o želji</h3>
+                        <div class="container-left">
+                            <div class="input">
+                                <i class="far fa-user-circle"></i>
+                                {{ form_row(form.nickname) }}
+                            </div>
+                            <div class="input">
+                                <i class="fas fa-location-arrow"></i>
+                                {{ form_row(form.location) }}
+                            </div>
+                            <div class="input">
+                                <i class="far fa-image"></i>
+                                {{ form_row(form.wishImage) }}
+                            </div>
+                        </div>
+                        <div class="container-right">
+                            <div class="input">
+                                <i class="fas fa-edit"></i>
+                                {{ form_row(form.wish) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wish-container-main">
+                    <p>Ovi podaci nisu javno dostupni, no bit će poslani osobi kako mi mogla ostvariti želju</p>
+                    <div class="wish-container real">
+                        <h3>Podaci primatelja paketa</h3>
+                        <div class="container-left">
+                            <div class="input">
+                                <i class="far fa-user-circle"></i>
+                                {{ form_row(form.name) }}
+                            </div>
+                            <div class="input">
+                                <i class="far fa-user"></i>
+                                {{ form_row(form.lastname) }}
+                            </div>
+                            <div class="input">
+                                <i class="fas fa-at"></i>
+                                {{ form_row(form.email) }}
+                            </div>
+                            <div class="input">
+                                <i class="fas fa-map-marked-alt"></i>
+                                {{ form_row(form.address) }}
+                            </div>
+                            <div class="input">
+                                <i class="fas fa-mobile-alt"></i>
+                                {{ form_row(form.wishPhone) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-footer">
+                    <div class="submit" id="submitWish">
+                        <i class="fas fa-angle-right"></i>
+                        {{ form_row(form.submit) }}
+                    </div>
+                    <p>
+                        Tvoji podaci će biti čuvani s obzirom na regulative zaštite osobnih podataka (GDPR).
+                    </p>
+                </div>
+                {{ form_end(form) }}
             </div>
             <div class="hearts">
-                <i class="far fa-heart"></i>
+                <img src="{{ '/images/illustration.svg' }}"/>
             </div>
         </div>
         {% include 'right_div.html.twig' %}
     </div>
-    {% include 'statistics.html.twig' %}
+    {% include 'footer.html.twig' %}
 {% endblock %}

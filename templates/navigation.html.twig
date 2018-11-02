@@ -1,13 +1,20 @@
-<nav class="nav nav-container">
-    <i class="fas fa-gift"></i>
-    <h1 class="title">Od Srca</h1>
-    <div class="nav-item text-right margin-r-50">
+<nav class="nav nav-container {% if app.request.get('_route') != 'wish.list' and app.request.get('_route') != 'wish.location'  %}abs{% endif %}">
+    <div class="nav-item">
+        <img src="{{ '/images/logo.svg' }}"/>
+        <h1 class="title">Od Srca</h1>
+    </div>
+    <div class="nav-item text-center">
         <a href="{{ url('home') }}" class="nav-link">Početna</a>
     </div>
-    <div class="nav-item text-right margin-r-50">
-        <a href="{{ url('wish.list') }}" class="nav-link">Ostvari Želju</a>
+    <div class="nav-item text-center">
+        <a href="{{ url('wish.location') }}" class="nav-link">Popis Želja</a>
     </div>
     <div class="nav-item">
         <a href="{{ url('wish.create') }}" class="nav-link">Zaželi</a>
     </div>
+    {% if app.request.get('_route') == 'wish.list' %}
+        <div class="hearts list">
+            <img src="{{ '/images/illustration.svg' }}"/>
+        </div>
+    {% endif %}
 </nav>

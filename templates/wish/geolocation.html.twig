@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Od Srca - Grad{% endblock %}
+
+{% block body %}
+    <div class="landing-page container-fluid abs">
+        <div class="col-md-6 left-div">
+            {% include 'navigation.html.twig' %}
+            <div class="about-content location">
+                <h1 class="subtitle">Popis želja</h1>
+                <form id="geolocation" action="{{ url('wish.list') }}" >
+                    <div class="wish-container-main">
+                        <div class="wish-container real">
+                            <h3>Filtriraj želje po lokaciji</h3>
+                            <div class="container-left">
+                                <div class="input">
+                                    <i class="fas fa-location-arrow"></i>
+                                    <input type="text" name="city" placeholder="Unesite vaš grad" id="city"/>
+                                </div>
+                                <div class="input">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    <label for="filter">Udaljenost:</label>
+                                    <input id="filter" name="filter" type="range" min="5" max="200" oninput="filterNumber.value=filter.value" />
+                                    <div class="filterNumber">
+                                        <input id="filterNumber" type="number" value="100" min="5" max="200" oninput="filter.value=filterNumber.value" />
+                                        <p>KM</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-footer">
+                            <div class="submit location">
+                                <input type="submit"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="hearts">
+                <img src="{{ '/images/illustration.svg' }}"/>
+            </div>
+        </div>
+        {% include 'right_div.html.twig' %}
+    </div>
+    {% include 'footer.html.twig' %}
+{% endblock %}

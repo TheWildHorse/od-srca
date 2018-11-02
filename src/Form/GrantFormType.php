@@ -6,6 +6,7 @@ use App\Entity\Wishes;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,18 +17,20 @@ class GrantFormType extends AbstractType
     {
         $builder
             ->add('realizeEmail', TextType::class, [
-                'help' => 'Day of the week.',
-                'attr' => ['placeholder' => 'Day'],
+                'attr' => ['placeholder' => 'E-mail adresa'],
+                'label' => false,
             ])
             ->add('realizePhone', TextType::class, [
-                'help' => 'Time you stop working',
-                'attr' => ['placeholder' => 'ime your company closes'],
+                'attr' => ['placeholder' => 'Broj mobitela'],
+                'label' => false,
             ])
-            ->add('realizeWish', TextType::class, [
-                'help' => 'Time you start working',
-                'attr' => ['placeholder' => 'Time your company opens.'],
+            ->add('realizeWish', TextareaType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Opis'],
             ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class,[
+                'label' => 'Javi nam se'
+            ])
         ;
     }
 

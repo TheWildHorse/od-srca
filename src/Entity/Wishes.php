@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WishesRepository")
  */
@@ -29,11 +29,6 @@ class Wishes
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $address;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
     private $email;
 
     /**
@@ -52,7 +47,8 @@ class Wishes
     private $isGranted = false;
 
     /**
-     * @ORM\Column(type="binary", nullable=true)
+     * @Assert\Image()
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $wishImage;
 
@@ -65,6 +61,26 @@ class Wishes
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $realizePhone;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $lastname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nickname;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $address;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $wishPhone;
 
     public function getId(): ?int
     {
@@ -187,6 +203,42 @@ class Wishes
     public function setRealizePhone(?string $realizePhone): self
     {
         $this->realizePhone = $realizePhone;
+
+        return $this;
+    }
+
+    public function getLastname(): ?string
+    {
+        return $this->lastname;
+    }
+
+    public function setLastname(string $lastname): self
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    public function getNickname(): ?string
+    {
+        return $this->nickname;
+    }
+
+    public function setNickname(string $nickname): self
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    public function getWishPhone(): ?string
+    {
+        return $this->wishPhone;
+    }
+
+    public function setWishPhone(string $wishPhone): self
+    {
+        $this->wishPhone = $wishPhone;
 
         return $this;
     }
