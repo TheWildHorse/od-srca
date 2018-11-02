@@ -572,13 +572,35 @@ img {
 .navigation{
     margin: 200px auto !important;
 }
+.input > input{
+    border: none;
+}
 @media (max-width: 1024px){
-    .nav{
+    .paragraph-1, .paragraph-2 {
+        line-height: 6rem;
+        color: var(--text-color);
+        font-size: 5rem;
+    }
+    .landing-page{
+        grid-template-columns: auto;
+    }
+
+    .nav,
+    .landing-page.list > div > nav{
         grid-template-columns: auto;
         position: initial;
         grid-gap: 30px;
         width: auto;
+        line-height: 6rem !important;
+        font-size: 5rem !important;
         justify-items: center;
+    }
+    .left-div, .right-div{
+        height: auto;
+    }
+    .subtitle,
+    .title{
+        font-size: 7rem;
     }
     .title{
         justify-self: left;
@@ -586,8 +608,18 @@ img {
     .entries{
         grid-template-columns: auto;
     }
+    .hearts,
+    .statistics{
+        display: none;
+    }
     .footer{
         display: none;
+    }
+    .count{
+        font-size: 3rem;
+        max-height: 100px;
+        align-self: end;
+        width: auto;
     }
     .nav.nav-container.abs{
         grid-template-columns: auto;
@@ -595,10 +627,60 @@ img {
         grid-gap: 30px;
         width: auto;
     }
-    .about-content{
-        margin-top: 0 !important;
+    .nav > .nav-item:first-child {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 80vw;
     }
-    .about-content > form {
+    .nav-item > img{
+        width: 100%;
+        max-height: 100%;
+    }
+    .about-content{
+        max-width: initial !important;
         min-width: 500px;
+        position: initial;
+        padding: 0;
+        margin: 200px 30px !important;
+    }
+    .wish-container{
+        display: block;
+    }
+    .wish-container-main > p,
+    .container-footer > p{
+        font-size: 3rem !important;
+    }
+    .input.wish{
+        font-size: 4rem !important;
+    }
+    .input.image{
+        display: none;
+    }
+    .wish-container,
+    .container-left > .input,
+    .input > input,
+    #filterNumber,
+    .submit > input,
+    .submit > i,
+    .input > i,
+    .container-footer > .submit > div > button,
+    .input > div > input,
+    .input > div > textarea,
+    .wish-container.real > .container-left > .input:last-child > div > input,
+    .submit > a{
+        font-size: 5rem !important;
+        width: auto;
+    }
+    .wish-container.real > .container-left > .input:last-child > div > input{
+        width: 100% !important;
+    }
+    #filterNumber{
+        height: auto;
+    }
+    .submit.realize{
+        width: auto;
+    }
+    .wish-container.realize > div > .input {
+        grid-template-columns: 10% 90%;
     }
 }
