@@ -574,7 +574,10 @@ img {
 }
 @media (max-width: 1024px){
     .nav{
-        grid-template-columns: auto auto;
+        grid-template-columns: auto;
+        position: initial;
+        grid-gap: 30px;
+        width: auto;
         justify-items: center;
     }
     .title{
