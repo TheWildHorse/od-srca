@@ -77,7 +77,10 @@ class HomepageController extends Controller
 
     /**
      * @Route(path="/wishes", name="wish.list")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Request $request
+     * @param ProviderAggregator $geocoder
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Geocoder\Exception\Exception
      */
     public function wishList(Request $request, ProviderAggregator $geocoder)
     {
@@ -130,6 +133,8 @@ class HomepageController extends Controller
      * @Route(path="/wish/create", name="wish.create")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Doctrine\ORM\ORMException
+     * @throws \Doctrine\ORM\OptimisticLockException
      */
     public function wishEntryCreate(Request $request)
     {
@@ -200,9 +205,7 @@ class HomepageController extends Controller
 
     /**
      * @Route(path="/wishes/location", name="wish.location")
-     * @param $entryId
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function getCity()
     {
@@ -236,13 +239,13 @@ class HomepageController extends Controller
                 'text/html'
             );
         $this->get('mailer')->send($message);
-
-        return $this->redirectToRoute('home');
     }
 
     /**
      * @Route(path="/wish/undo/{entryId}", name="wish.undo")
-     *
+     * @param $entryId
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function undoWish($entryId, Request $request)
     {
