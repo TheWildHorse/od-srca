@@ -594,7 +594,12 @@ a {
     .pagination{
         padding: 15px;
     }
-    .page, .current, .next, .last{
+    .page,
+    .first,
+    .previous
+    .current,
+    .next,
+    .last{
         font-size: 4rem;
     }
     .nav,
