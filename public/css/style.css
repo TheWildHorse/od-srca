@@ -368,7 +368,7 @@ a {
     transition: height 0.3s ease-in;
 }
 .fullscreenWishImage{
-    object-fit: cover;
+    object-fit: fill;
     width: 98vw;
     height: 98vh;
     position: absolute;
