@@ -194,7 +194,7 @@ class HomepageController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             $currentHost = $request->getSchemeAndHttpHost();
-            $this->sendEmail($realizeEmail, $wishEmail, $entry, $currentHost);
+            $this->sendEmail($wishEmail, $realizeEmail, $entry, $currentHost);
             return $this->redirectToRoute('wish.list');
         }
 
@@ -218,7 +218,7 @@ class HomepageController extends Controller
      */
     public function sendEmail($from, $to, $wish, $currentHost)
     {
-        $message = (new \Swift_Message('Hvala Vam'))
+        $message = (new \Swift_Message('Podaci Za Ispunjenje Želje'))
             ->setFrom($from)
             ->setTo($to)
             ->setBody(
