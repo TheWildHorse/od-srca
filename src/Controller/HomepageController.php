@@ -255,6 +255,9 @@ class HomepageController extends Controller
                 'id' => $entryId
             ]);
         $entry->setIsGranted(false);
+        $entry->setRealizeEmail(null);
+        $entry->setRealizePhone(null);
+        $entry->setRealizeWish(null);
         $this->getDoctrine()->getManager()->persist($entry);
         $this->getDoctrine()->getManager()->flush();
         return $this->redirectToRoute('home');
