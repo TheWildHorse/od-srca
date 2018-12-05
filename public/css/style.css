@@ -591,7 +591,12 @@ a {
     .landing-page{
         grid-template-columns: auto;
     }
-
+    .pagination{
+        padding: 15px;
+    }
+    .page, .current, .next, .last{
+        font-size: 4rem;
+    }
     .nav,
     .landing-page.list > div > nav{
         grid-template-columns: auto;
