@@ -686,3 +686,9 @@ a {
         grid-template-columns: 10% 90%;
     }
 }
+@media (min-width: 1024px) and (max-width: 1300px){
+    .nav {
+        display: grid;
+        grid-template-columns: 40% auto auto auto;
+    }
+}
