@@ -578,6 +578,7 @@ a {
 }
 .navigation{
     margin: 200px auto !important;
+    width: 75% !important;
 }
 .input > input{
     border: none;
