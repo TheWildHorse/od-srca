@@ -625,6 +625,10 @@ a {
     }
     .entries{
         grid-template-columns: auto;
+        overflow: scroll;
+    }
+    .entries > div:last-child{
+        margin-bottom: 50px;
     }
     .hearts,
     .statistics{
