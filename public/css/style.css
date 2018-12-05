@@ -330,6 +330,7 @@ a {
     cursor: pointer;
     border-radius: 24px;
     justify-self: center;
+    max-width: 90%;
 }
 .submit > div > button{
     cursor: pointer;
