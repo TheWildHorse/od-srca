@@ -448,6 +448,7 @@ a {
     display: grid;
     grid-template-columns: 15% 85%;
     font-size: 25px;
+    grid-gap: 10px;
 }
 .container-right > div{
     height: 95% !important;
@@ -476,6 +477,9 @@ a {
 }
 .container-left > div:last-child{
     border: none;
+}
+.input.wish{
+    font-size: 20px;
 }
 .container-left > .input:last-child > div > input{
     font-size: 13px !important;
