@@ -363,12 +363,12 @@ a {
     position: fixed;
     height: 98vh;
     width: 98vw;
-    background: #444444;
+    background: #44444400;
     z-index: 12;
     transition: height 0.3s ease-in;
 }
 .fullscreenWishImage{
-    object-fit: fill;
+    object-fit: contain;
     width: 98vw;
     height: 98vh;
     position: absolute;
