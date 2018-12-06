@@ -691,7 +691,7 @@ a {
     .input > div > textarea,
     .wish-container.real > .container-left > .input:last-child > div > input,
     .submit > a{
-        font-size: 5rem !important;
+        font-size: 4rem !important;
         width: auto;
     }
     .wish-container.real > .container-left > .input:last-child > div > input{
